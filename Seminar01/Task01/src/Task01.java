@@ -1,9 +1,9 @@
 public class Task01 {
    public static void main(String[] args) {
-      // int[] arr01 = { 2, 7, 3, 5, 4 };
-      int[] arr01 = null;
-      int hountedNum = 8;
-      int minLength = 6;
+      int[] arr01 = { 2, 7, 3, 5, 4 };
+      // int[] arr01 = null;
+      int hountedNum = 7;
+      int minLength = 5;
 
       int result = arrayLength(arr01, hountedNum, minLength);
 
@@ -14,7 +14,8 @@ public class Task01 {
       } else if (result == -3) {
          System.out.println("Нулевой массив");
       } else {
-         System.out.println("Найденный элемент: " + result);
+         System.out.println("Индекс найденного элемента: " + result);
+         System.out.println("Найденный элемент: " + arr01[result]);
       }
    }
 
@@ -37,7 +38,7 @@ public class Task01 {
       }
       for (int i = 0; i < arr.length; i++) {
          if (arr[i] == hountedNum) {
-            return hountedNum;
+            return i;
          }
       }
       return -2;
