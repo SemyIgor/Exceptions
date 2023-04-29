@@ -15,10 +15,12 @@ public class Task03 {
          abc[3] = 9;
       } catch (Throwable ex) {
          System.out.println("Что-то пошло не так..."); // Перехватывать в последнюю очередь
-      } catch (NullPointerException ex) {
-         System.out.println("Указатель не может указывать на null!");
-      } catch (IndexOutOfBoundsException ex) {
-         System.out.println("Массив выходит за пределы своего размера!");
+         /*
+          * } catch (NullPointerException ex) {
+          * System.out.println("Указатель не может указывать на null!");
+          * } catch (IndexOutOfBoundsException ex) {
+          * System.out.println("Массив выходит за пределы своего размера!");
+          */
       }
    }
 
