@@ -3,7 +3,6 @@
  */
 public class Task02 {
    public static void main(String[] args) {
-      // Задание 2
       try {
          int[] intArray = { 5, 4, 7, 1, 3, 9, 0, 7, 2, 6 }; // В коде не был инициирован массив
          int d = 0;

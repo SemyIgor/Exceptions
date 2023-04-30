@@ -8,27 +8,24 @@ import java.util.Scanner;
 
 public class Task01 {
    public static void main(String[] args) {
-
-      boolean entered = false;
-      while (!entered) {
-         Scanner in = new Scanner(System.in);
-         try {
-            System.out.print("Input a float number: ");
-            float fl = in.nextFloat();
-            System.out.printf("Your number: %f \n", fl);
-            entered = true;
-         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            // TODO: handle exception
-         } finally {
-            System.out.println(entered);
-            in.close();
-         }
-      }
+      System.out.println(takeFloatNumber());
    }
 
    static float takeFloatNumber() {
-      float a = 1.0F;
-      return a;
+      Scanner in = new Scanner(System.in);
+      boolean entered = false;
+      float num;
+
+      do {
+         System.out.print("Input a float number: \n");
+         while (!in.hasNextFloat()) {
+            System.out.println("Ошибка ввода. Попробуйте ещё раз!");
+            in.next(); // Важно !
+         }
+         num = in.nextFloat();
+         entered = true;
+      } while (!entered);
+      in.close();
+      return num;
    }
 }

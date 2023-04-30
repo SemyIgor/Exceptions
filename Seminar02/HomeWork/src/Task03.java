@@ -2,8 +2,6 @@
  3. Дан следующий код, исправьте его там, где требуется (задание 3 https://docs.google.com/document/d/17EaA1lDxzD5YigQ5OAal60fOFKVoCbEJqooB9XfhT7w/edit)
  */
 
-import java.io.FileNotFoundException; // не был предусмотрен импорт
-
 public class Task03 {
    public static void main(String[] args) throws Exception {
       try {
@@ -12,20 +10,42 @@ public class Task03 {
          System.out.println(a / b);
          printSum(23, 234);
          int[] abc = { 1, 2 };
-         abc[3] = 9;
-      } catch (Throwable ex) {
-         System.out.println("Что-то пошло не так..."); // Перехватывать в последнюю очередь
-         /*
-          * } catch (NullPointerException ex) {
-          * System.out.println("Указатель не может указывать на null!");
-          * } catch (IndexOutOfBoundsException ex) {
-          * System.out.println("Массив выходит за пределы своего размера!");
-          */
+         abc[1] = 9;
+
+      } catch (ArithmeticException ex) {
+         System.out.println("Недопустимая арифметическая операция");
+      } catch (NullPointerException ex) {
+         System.out.println("Указатель не может указывать на null!");
+      } catch (IndexOutOfBoundsException ex) {
+         System.out.println("Массив выходит за пределы своего размера!");
+      } catch (Exception ex) {
+         System.out.println("Что-то пошло не так...");
       }
    }
 
-   public static void printSum(Integer a, Integer b) throws FileNotFoundException {
+   public static void printSum(int a, int b) {
       System.out.println(a + b);
    }
-
 }
+
+/*
+ * В данном коде обнаружены следующие ошибки:
+ * 1. Инициипрован массив abc длиной 2 элемента, но при этом попытка записи
+ * в элемент массива с индексом 3, что требует длину массива 4. Изменил индекс
+ * записываемого элемента на 1.
+ * 2. Используется операция деления двух чисел a/b, но не обрабатывается
+ * возможная ошибка деления на 0 при изменении значений этих переменных. Добавил
+ * перехват исключения ArithmeticException
+ * 3. Применена универсальная обработка всего класса исключений Throwable,
+ * который включает в себя класс ошибок, что бессмысленно, так как программа,
+ * в случае их возникновения, прекратит свою работу). Заменил Throwable на
+ * Exception.
+ * 4. Порядок обработки исключений не верный, так как они должны выполняться от
+ * самого специфического к самому общему, поэтому обработку Exception перенёс в
+ * последнюю очередь.
+ * 5. В методе printSum предусмотрено исключение FileNotFoundException, которое
+ * никогда не наступит, так как здесь не используются операции с файлами. Убрал
+ * ненужную часть кода.
+ * 6. В методе printSum используется объект Integer, что приводит к
+ * неоправданному расходу ресурсов. Заменил на примитив int.
+ */
