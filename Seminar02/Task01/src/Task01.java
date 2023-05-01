@@ -20,6 +20,8 @@
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -27,10 +29,14 @@ public class Task01 {
    public static void main(String[] args) {
 
       HashMap<String, String> namesAndLength = new HashMap<>();
+      // Считываем строки из файла в HashMap и выводим в терминал:
       namesAndLength = readFileToMap(namesAndLength, "log.txt");
       System.out.println(namesAndLength);
+      // Корректируем данные полученного массива и выводим результат в терминал:
       correctHashMap(namesAndLength);
       System.out.println(namesAndLength);
+      // Записываем результат в файл (файл создаётся, если его нет):
+      mapToFile(namesAndLength, "test.txt");
    }
 
    // Читает строки из файла и вызывает метод их добавления в HashMap
@@ -82,9 +88,18 @@ public class Task01 {
       return namesAndLength;
    }
 
-   // Метод записи HashMap в файл (пока не реализован)
+   // Метод записи HashMap в файл
    static void mapToFile(HashMap<String, String> namesAndLength, String pathnameString) {
+      try (FileWriter writer = new FileWriter(pathnameString, false)) {
+         for (HashMap.Entry<String, String> entry : namesAndLength.entrySet()) {
+            // Печать каждой строки, записываемой в файл (для отладки):
+            // System.out.println(entry.toString());
+            writer.write(entry.toString() + "\n");
+         }
 
+         writer.flush();
+      } catch (IOException ex) {
+         System.out.println(ex.getMessage());
+      }
    }
-
 }
