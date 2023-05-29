@@ -1,18 +1,8 @@
-## Getting Started
+## Seminar03 Task02
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- Создайте класс Счётчик, у которого есть метод add(), увеличивающий
+- значение внутренней int переменной на 1.
+- Сделайте так, чтобы с объектом такого типа можно было работать в блоке try-with-resources.
+- Подумайте, что должно происходить при закрытии этого ресурса?
+- Напишите метод для проверки, закрыт ли ресурс.
+- При попытке вызвать add() у закрытого ресурса, должен выброситься IOException.
