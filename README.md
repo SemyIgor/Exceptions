@@ -18,5 +18,5 @@
      1. git branch -M main
      2. git remote add origin git@github.com:SemyIgor/Exceptions.git
      3. git push --set-upstream origin main
-   - заходим на сайт GitHub и обновляем страницу - репозиторий подключен, созыанные файлы скопированы.
+   - заходим на сайт GitHub и обновляем страницу - репозиторий подключен, созданные файлы скопированы.
 9. Пишем этот текст.
