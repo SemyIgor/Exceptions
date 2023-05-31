@@ -1,4 +1,4 @@
-## Getting Started
+## Seminar01 Task03
 
 - Реализуйте метод checkArray(Integer[] arr), принимающий
 - в качестве аргумента целочисленный одномерный массив.
