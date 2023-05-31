@@ -1,18 +1,29 @@
-## Getting Started
+## Seminar03 HomeWork
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+- 1.  Напишите приложение, которое будет запрашивать у пользователя следующие данные
+- в произвольном порядке, разделенные пробелом:
+- Фамилия
+- Имя
+- Отчество
+- дата рождения
+- номер телефона
+- пол
+  Форматы данных:
+  фамилия, имя, отчество - строки
+  дата*рождения - строка формата dd.mm.yyyy
+  номер*телефона - целое беззнаковое число без форматирования
+  пол - символ латиницей f или m.
 
-## Folder Structure
+- 2. Приложение должно проверить введенные данные по количеству. Если количество не совпадает с требуемым,
+     вернуть код ошибки, обработать его и показать пользователю сообщение, что он ввел меньше и больше данных, чем требуется.
 
-The workspace contains two folders by default, where:
+- 3. Приложение должно попытаться распарсить полученные значения и выделить из них требуемые параметры.
+     Если форматы данных не совпадают, нужно бросить исключение, соответствующее типу проблемы. Можно использовать встроенные типы java и создать свои. Исключение должно быть корректно обработано, пользователю выведено сообщение с информацией, что именно неверно.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- 4. Если всё введено и обработано верно, должен создаться файл с названием, равным фамилии, в него в одну строку должны записаться полученные данные, вида
+     <Фамилия><Имя><Отчество><датарождения> <номертелефона><пол>
+     Однофамильцы должны записаться в один и тот же файл, в отдельные строки.
+     Не забудьте закрыть соединение с файлом.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+\*5. При возникновении проблемы с чтением-записью в файл, исключение должно быть корректно обработано,
+пользователь должен увидеть стектрейс ошибки.
