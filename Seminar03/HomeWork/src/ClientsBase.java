@@ -28,8 +28,53 @@
 пользователь должен увидеть стектрейс ошибки.
  */
 
+/*
+ * 1. Вводим строку с данными через пробел
+ * 2. Преобразуем строку в массив строк
+ * 3. Определяем количество введённых данных (длина массива строк должна равняться 6) (exception)
+ * 4. Распарсить данные, обработать на предмет ошибок (exception)
+ * 5. Создать/открыть файл с названием, равным фамилии с добавлением данных (если однофамильцы)(exception)
+ * 6. Записать данные в одну строку <><><>...<> (exception)
+ * 7. Закрыть соединение с файлом (exception)
+ */
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class ClientsBase {
    public static void main(String[] args) {
 
+      String str;
+      // ArrayList<String> dataBase = new ArrayList<>();
+      do {
+         // str = "asd we rt 12.05.1962 1234567890 m";
+         // str = "фыва на rt 12.05.1962 1234567890 m";
+         str = getString();
+         System.out.println(str);
+
+         if (!str.equals("Q") && !str.equals("q")) {
+            String[] split = str.split(" ");
+            printArray(split);
+         }
+         str = "q";
+      } while (!str.equals("Q") && !str.equals("q"));
    }
+
+   // Ввод строки с данными
+   static String getString() {
+      System.out.println("Введите данные через пробел:");
+      System.out.println(
+            "Фамилия Имя Отчество Дата_рождения(dd.mm.yyyy) Телефон(только цифры) Пол(m/f):\nДля выхода введите q или Q");
+      Scanner in = new Scanner(System.in, "utf-8");
+      String string = in.nextLine();
+      return string;
+   }
+
+   // Печать строкового массива
+   static void printArray(String[] str) {
+      for (String string : str) {
+         System.out.println(string + " -> " + string.length());
+      }
+   }
+
 }

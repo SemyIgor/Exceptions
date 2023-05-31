@@ -1,18 +1,6 @@
-## Getting Started
+## Seminar01 HWLesson01
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- 1.  Реализуйте 3 метода, чтобы в каждом из них получить разные исключения.
+- 2.  Посмотрите на код и подумайте, сколько разных типов исключений вы тут сможете получить?
+- 3.  Реализуйте метод, принимающий в качестве аргументов два целочисленных массива и возвращающий новый массив, каждый элемент которого равен разности элементов двух входящих массивов в той же ячейке. Если длины массивов не равны, необходимо как-то оповестить пользователя.
+- 4.  Реализуйте метод, принимающий в качестве аргументов два целочисленных массива и возвращающий новый массив, каждый элемент которого равен частному элементов двух входящих массивов в той же ячейке. Если длины массивов не равны, необходимо как-то оповестить пользователя. Важно: при выполнении метода единственное исключение, которое пользователь может увидеть - RuntimeException, то есть ваше.

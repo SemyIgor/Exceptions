@@ -1,18 +1,9 @@
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- Метод принимает в качестве аргумента целочисленный массив и некоторое
+- значение.
+- Ищет в массиве заданное значение и возвращает его индекс.
+- 1.  если длина массива меньше некоторого заданного минимума, метод возвращает
+- -1, в качестве кода ошибки.
+- 2.  если искомый элемент не найден, метод вернет -2 в качестве кода ошибки.
+- 3.  если вместо массива пришел null, метод вернет -3
