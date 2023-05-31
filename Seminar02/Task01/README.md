@@ -1,18 +1,19 @@
-## Getting Started
+## Seminar02 Task01
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- 1.  Запишите в файл следующие строки:
+- Анна=4
+- Елена=5
+- Марина=6
+- Владимир=?
+- Константин=?
+- Иван=4
+-
+- 2.  Реализуйте метод, который считывает данные из файла и сохраняет в двумерный массив
+- (либо HashMap, если студенты с ним знакомы).
+-
+- 3.  В отдельном методе нужно будет пройти по структуре данных,
+- если сохранено значение ?, заменить его на соответствующее число.
+- Если на каком-то месте встречается символ, отличный от числа или ?,
+- бросить подходящее исключение.
+-
+- 4.  Записать в тот же файл данные с замененными символами ?
