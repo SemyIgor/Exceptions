@@ -38,6 +38,8 @@
  * 7. Закрыть соединение с файлом (exception)
  */
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -47,16 +49,25 @@ public class ClientsBase {
       String str;
       // ArrayList<String> dataBase = new ArrayList<>();
       do {
-         // str = "asd we rt 12.05.1962 1234567890 m";
-         // str = "фыва на rt 12.05.1962 1234567890 m";
-         str = getString();
-         System.out.println(str);
+         // str = "asd rt 12.05.1962 1234567890 m"; // Данных меньше, чем должно
+         // str = "asd me no rt 12.05.1962 1234567890 m"; // Данных больше, чем должно
+         // str = "asd we rt 12.05.1962 1234567890 m"; // Правильный ввод данных
+         // str = "фыва на rt 12.05.1962 1234567890 m"; // Правильный ввод данных
+         str = getString(); // Ввод пользователем
 
          if (!str.equals("Q") && !str.equals("q")) {
-            String[] split = str.split(" ");
-            printArray(split);
+            String[] datesArray = str.split(" ");
+            try {
+               if (checkDatesNumber(datesArray)) {
+                  System.out.println("Обработка данных");
+                  strArrayToFile(datesArray, datesArray[0] + ".txt");
+               }
+
+            } catch (RuntimeException e) {
+               System.out.println(e.getStackTrace().toString());
+            }
          }
-         str = "q";
+         // str = "q"; // Автоматический выход из цикла
       } while (!str.equals("Q") && !str.equals("q"));
    }
 
@@ -70,11 +81,47 @@ public class ClientsBase {
       return string;
    }
 
+   // Метод записи строки в файл
+   static void stringToFile(String str, String pathnameString) {
+      try (FileWriter writer = new FileWriter(pathnameString, true)) {
+         writer.write(str.toString() + "\n");
+         writer.flush();
+      } catch (IOException ex) {
+         System.out.println(ex.getMessage());
+      }
+   }
+
+   // Метод записи массива строк в файл
+   static void strArrayToFile(String[] str, String pathnameString) {
+      try (FileWriter writer = new FileWriter(pathnameString, true)) {
+         for (String strItem : str) {
+            writer.write("<" + strItem + "> ");
+         }
+         writer.write("\n");
+         writer.flush();
+      } catch (IOException ex) {
+         System.out.println(ex.getMessage());
+      }
+   }
+
+   // Проверка количества введённых данных
+   static boolean checkDatesNumber(String[] strArray) throws RuntimeException {
+      int arrLength = strArray.length;
+      if (arrLength == 6) {
+         return true;
+      } else if (arrLength < 6) {
+         throw new RuntimeException("Введено недостаточное количество данных. Повторите ввод\n");
+         // return -1;
+      } else {
+         throw new RuntimeException("Введено чрезмерное количество данных. Повторите ввод\n");
+         // return 1;
+      }
+   }
+
    // Печать строкового массива
    static void printArray(String[] str) {
       for (String string : str) {
          System.out.println(string + " -> " + string.length());
       }
    }
-
 }
